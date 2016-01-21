@@ -1,0 +1,47 @@
+{
+  "name": "elastic-loop",
+  "version": "0.1.0",
+  "description": "Runs a loop with mutable timeout.",
+  "main": "index.js",
+  "scripts": {
+    "test": "tape test/*.js"
+  },
+  "testling": {
+    "files": "test/*.js",
+    "browsers": [
+      "ie/6..latest",
+      "chrome/22..latest",
+      "firefox/16..latest",
+      "safari/latest",
+      "opera/11.0..latest",
+      "iphone/6",
+      "ipad/6",
+      "android-browser/latest"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/grindcode/elastic-loop.git"
+  },
+  "keywords": [
+    "loop",
+    "timeout",
+    "interval",
+    "mutable",
+    "timeout",
+    "function",
+    "execution"
+  ],
+  "author": "Isis T. Baulig",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/grindcode/elastic-loop/issues"
+  },
+  "homepage": "https://github.com/grindcode/elastic-loop#readme",
+  "devDependencies": {
+    "tape": "^4.4.0"
+  },
+  "dependencies": {
+    "lodash.defaults": "^4.0.0"
+  }
+}
