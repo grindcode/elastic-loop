@@ -10,7 +10,7 @@ npm install elastic-loop
 
 ## API
 ### loop(function, stress, [options])
-Runs `function` in loop, mutating timeout depending on `stress`.
+Runs `function` in loop, mutating timeout depending on `stress`. Returns instance containing `end` function.
 * `function`: Function to be called. (**Function**)
 * `stress`: Function returning bool. (**Function**)
 * `options`: optional, but must be an Object if specified, containing zero or more of the following properties:
@@ -37,6 +37,8 @@ var stress = function () {
 }
 
 var cycle = loop(run, stress)
+
+// cycle.end()
 
 ```
 
