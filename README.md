@@ -4,7 +4,7 @@
 Runs a loop with mutable timeout. Useful for intervals on heavy load situations.
 
 ## Get Started
-```
+```bash
 npm install elastic-loop
 ```
 
@@ -20,7 +20,7 @@ Runs `function` in loop, mutating timeout depending on `stress`. Returns instanc
   *  `max`: Maximum stress multiplier. (**Number**|**Float**; default: `0:infinite`)
 
 ### Usage
-```
+```javascript
 var loop = require('elastic-loop')
 var busy = require('node-busy')
 
