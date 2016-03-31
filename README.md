@@ -1,5 +1,5 @@
 # Elastic Loop
-[![Build Status](https://travis-ci.org/grindcode/elastic-loop.svg?branch=master)](https://travis-ci.org/grindcode/elastic-loop) [![Dependency Status](https://david-dm.org/grindcode/elastic-loop.svg)](https://david-dm.org/grindcode/elastic-loop) [![devDependency Status](https://david-dm.org/grindcode/elastic-loop/dev-status.svg)](https://david-dm.org/grindcode/elastic-loop#info=devDependencies)
+[![Build Status](https://travis-ci.org/grindcode/elastic-loop.svg?branch=master)](https://travis-ci.org/grindcode/elastic-loop) [![Test Coverage](https://codeclimate.com/github/grindcode/elastic-loop/badges/coverage.svg)](https://codeclimate.com/github/grindcode/elastic-loop/coverage) [![Dependency Status](https://david-dm.org/grindcode/elastic-loop.svg)](https://david-dm.org/grindcode/elastic-loop) [![devDependency Status](https://david-dm.org/grindcode/elastic-loop/dev-status.svg)](https://david-dm.org/grindcode/elastic-loop#info=devDependencies)
 
 Runs a loop with mutable timeout. Useful for intervals on heavy load situations.
 
