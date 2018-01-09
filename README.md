@@ -1,7 +1,7 @@
 # Elastic Loop
 [![Build Status](https://travis-ci.org/grindcode/elastic-loop.svg?branch=master)](https://travis-ci.org/grindcode/elastic-loop) [![Test Coverage](https://codeclimate.com/github/grindcode/elastic-loop/badges/coverage.svg)](https://codeclimate.com/github/grindcode/elastic-loop/coverage) [![Dependency Status](https://david-dm.org/grindcode/elastic-loop.svg)](https://david-dm.org/grindcode/elastic-loop) [![devDependency Status](https://david-dm.org/grindcode/elastic-loop/dev-status.svg)](https://david-dm.org/grindcode/elastic-loop#info=devDependencies)
 
-Runs a loop with mutable timeout. Useful for intervals on heavy load situations.
+Runs an interval with elastic timeout. Useful for loops supporting heavy load situations.
 
 ## Get Started
 ```bash
@@ -11,13 +11,13 @@ npm install elastic-loop
 ## API
 ### loop(function, stress, [options])
 Runs `function` in loop, mutating timeout depending on `stress`. Returns instance containing `end` function.
-* `function`: Function to be called. (**Function**)
+* `function`: Interval function. (**Function**)
 * `stress`: Function returning bool. (**Function**)
 * `options`: optional, but must be an Object if specified, containing zero or more of the following properties:
   *  `timeout`: Default interval timeout in milliseconds. (**Number**; default: `1000`)
   *  `modifier`: Timeout multiplier on stress. (**Float**; default: `1.20`)
-  *  `min`: Minimum stress multiplier. (**Number**|**Float**; default: `1`)
-  *  `max`: Maximum stress multiplier. (**Number**|**Float**; default: `0:infinite`)
+  *  `min`: Min stress multiplier. (**Number**|**Float**; default: `1`)
+  *  `max`: Max stress multiplier. (**Number**|**Float**; default: `0:infinite`)
 
 ### Usage
 ```javascript
@@ -32,7 +32,7 @@ var run = function (cycle) {
 }
 
 var stress = function () {
-  // returns true when overloaded, false otherwise
+  // returns true if overloaded, false otherwise
   return monitor.blocked
 }
 
