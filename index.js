@@ -1,10 +1,9 @@
-var defaults = require('lodash.defaults')
 module.exports = function (fn, lever, opts) {
   var stress = 1
   var cycle
-  var options = defaults({}, opts, {
+  var options = Object.assign({
     modifier: 1.20, timeout: 1000, min: 1, max: 0
-  })
+  }, opts)
   var increase = function () {
     var s = stress * options.modifier
     return (s < options.max || !options.max)? s: options.max

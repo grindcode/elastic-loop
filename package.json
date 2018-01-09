@@ -1,7 +1,7 @@
 {
   "name": "elastic-loop",
-  "version": "0.1.0",
-  "description": "Runs a loop with mutable timeout.",
+  "version": "0.2.0",
+  "description": "Runs an interval with elastic timeout.",
   "main": "index.js",
   "scripts": {
     "test": "tape test/*.js",
@@ -18,7 +18,10 @@
     "mutable",
     "timeout",
     "function",
-    "execution"
+    "execution",
+    "stress",
+    "load",
+    "tick"
   ],
   "author": "Isis T. Baulig",
   "license": "MIT",
@@ -28,10 +31,8 @@
   "homepage": "https://github.com/grindcode/elastic-loop#readme",
   "devDependencies": {
     "codeclimate-test-reporter": "^0.5.0",
-    "nyc": "^10.0.0",
+    "nyc": "^11.4.1",
     "tape": "^4.5.1"
   },
-  "dependencies": {
-    "lodash.defaults": "^4.0.0"
-  }
+  "dependencies": {}
 }
