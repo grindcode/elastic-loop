@@ -4,8 +4,7 @@
   "description": "Runs an interval with elastic timeout.",
   "main": "index.js",
   "scripts": {
-    "test": "tape test/*.js",
-    "report": "nyc tape test/*.js && nyc report --reporter=text-lcov | codeclimate-test-reporter"
+    "test": "tape test/*.js"
   },
   "repository": {
     "type": "git",
@@ -30,9 +29,7 @@
   },
   "homepage": "https://github.com/grindcode/elastic-loop#readme",
   "devDependencies": {
-    "codeclimate-test-reporter": "^0.5.0",
-    "nyc": "^11.4.1",
-    "tape": "^4.5.1"
+    "tape": "^4.10.2"
   },
   "dependencies": {}
 }
