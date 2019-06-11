@@ -1,36 +1,36 @@
-module.exports = function (fn, lever, opts) {
-  var stress = 1
-  var cycle
-  var options = Object.assign({
-    modifier: 1.20, timeout: 1000, min: 1, max: 0
-  }, opts)
-  var increase = function () {
-    var s = stress * options.modifier
-    return (s < options.max || !options.max)? s: options.max
-  }
-  var decrease = function () {
-    var s = stress / options.modifier
-    return (s > options.min)? s: options.min
-  }
-  var balance = function () {
-    var s = stress
-    stress = (lever())? increase(): decrease()
-    return stress !== s
-  }
-  var end = function () {
-    clearInterval(cycle)
-  }
-  var run = function () {
-    var timeout = options.timeout * stress
-    var runInterval = function () {
-      fn({ stress: stress, timeout: timeout })
-      if (balance()) run()
+module.exports = function (fn, relay, options = {}) {
+    const {modifier = 1.20, timeout = 1000, min = 1, max = 0} = options
+    let stress = 1
+    let cycle
+    function increase () {
+        const nextStress = stress * modifier
+        return (nextStress < max || !max) ? nextStress : max
     }
-    end()
-    cycle = setInterval(runInterval, timeout)
-  }
-  run()
-  return {
-    end: end
-  }
+    function decrease () {
+        const nextStress = stress / modifier
+        return nextStress > min ? nextStress : min
+    }
+    function balance () {
+        const prevStress = stress
+        stress = relay() ? increase() : decrease()
+        return prevStress !== stress
+    }
+    function start (nextTimeout) {
+        cycle = setInterval(run, nextTimeout)
+    }
+    function run () {
+        const nextTimeout = timeout * stress
+        fn({stress, timeout: nextTimeout, cycle})
+        if (balance()) {
+            clear()
+            start(nextTimeout)
+        }
+    }
+    function clear () {
+        if (cycle) {
+            clearInterval(cycle)
+        }
+    }
+    start()
+    return clear
 }
