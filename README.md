@@ -1,7 +1,7 @@
 # Elastic Loop
 [![Build Status](https://travis-ci.org/grindcode/elastic-loop.svg?branch=master)](https://travis-ci.org/grindcode/elastic-loop) [![Dependency Status](https://david-dm.org/grindcode/elastic-loop.svg)](https://david-dm.org/grindcode/elastic-loop) [![devDependency Status](https://david-dm.org/grindcode/elastic-loop/dev-status.svg)](https://david-dm.org/grindcode/elastic-loop#info=devDependencies)
 
-Runs an interval with elastic timeout. Useful for loops supporting heavy load situations.
+Runs an interval with variable timeout. Useful for loops adapting to heavy load or other kind of situations.
 
 ## Get Started
 ```bash
@@ -21,22 +21,22 @@ Runs `function` in loop, mutating timeout depending on `stress`. Returns instanc
 
 ### Usage
 ```javascript
-var loop = require('elastic-loop')
-var busy = require('node-busy')
+const loop = require('elastic-loop')
+const busy = require('node-busy')
 
-monitor = busy()
+const monitor = busy()
 
 // @cycle: current cycle fingerprint
-var run = function (cycle) {
+function run (cycle) {
   // → @cycle: { timeout: 1000, stress: 1 }
 }
 
-var stress = function () {
+function stress () {
   // returns true if overloaded, false otherwise
   return monitor.blocked
 }
 
-var cycle = loop(run, stress)
+const cycle = loop(run, stress)
 
 // cycle.end()
 
