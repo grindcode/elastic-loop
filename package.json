@@ -1,6 +1,6 @@
 {
   "name": "elastic-loop",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "description": "Runs an interval with elastic timeout.",
   "main": "index.js",
   "scripts": {
